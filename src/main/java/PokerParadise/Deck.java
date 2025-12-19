@@ -1,34 +1,15 @@
 package PokerParadise;
 
+import PokerParadise.BlackJack.Player;
+
 import java.util.Collections;
 import java.util.Stack;
 
-public class Cards {
+public class Deck {
     Stack<Card> deck;
 
-    public Cards(){
+    public Deck(){
         createDeck();
-    }
-
-    public class Card {
-        final String suit;
-        final String face;
-        final int num;
-
-
-        public Card(String suit, String face, int num) {
-            this.suit = suit;
-            this.face = face;
-            this.num = num;
-        }
-
-        public int getNum(){
-            return num;
-        }
-
-        public String toString() {
-            return face + " of " + suit;
-        }
     }
 
     void createDeck() {
@@ -69,7 +50,14 @@ public class Cards {
         }
         Collections.shuffle(deck);
     }
-    public Card dealCard() {
-        return deck.pop();
+
+    public void dealCard(Player player) {
+        player.hand.add(deck.pop());
+    }
+
+    public void dealCards(Player player, int numCards) {
+        for (int i = 0; i < numCards; i++) {
+            player.hand.add(deck.pop());
+        }
     }
 }

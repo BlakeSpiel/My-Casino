@@ -1,57 +1,44 @@
 package PokerParadise.BlackJack;
 
-import PokerParadise.Cards;
+import PokerParadise.Card;
 
 import java.util.ArrayList;
 
 public class Player{
 
-    protected final ArrayList<Cards.Card> hand = new ArrayList<>();
+    public final ArrayList<Card> hand = new ArrayList<>();
 
     public int myTotal(){
-        int ace = 0;
+        boolean ace = false;
         int sum = 0;
 
-        for(int i = 0; i < hand.size(); i++ ){
-
-            int card = hand.get(i).getNum();
-            if (card == 1 && sum + 11 <= 21){
-                ace++;
-                sum += 11;
-            } else if (ace == 1 && card == 1 && sum + card > 21){
-                ace++;
-                sum += card;
-                sum -= 10;
-            } else {
-                sum += card;
+        for (int i = 0; i < getSize(); i++){
+            int currCard = getCard(i).getNum();
+            if(currCard == 1){
+                ace = true;
             }
+            sum += currCard;
+        }
+
+        if(ace && sum + 10 <= 21){
+            sum += 10;
         }
         return sum;
     }
 
+    //ACTION
     public void resetHand(){
         hand.clear();
     }
 
-    public void drawCard(Cards cardDeck, int numCards){
-        for (int i = 0; i < numCards; i++){
-            hand.add(cardDeck.dealCard());
-        }
+    //GETTERS
+    public int getSize(){
+        return hand.size();
     }
-
-    public Cards.Card getCard(int index){
+    public Card getCard(int index){
         return hand.get(index);
     }
-
-    public Cards.Card getLastCard(){
+    public Card getLastCard(){
         return hand.get(hand.size()-1);
-    }
-
-    public String showHand() {
-        String handString = "";
-        for(int i = 0; i < hand.size(); i++){
-            handString += (hand.get(i)+ " ");
-        }
-        return handString;
     }
 }

@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 public class Menu extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        new Cards();
+        new Deck();
         //Setting the stage
         FXMLLoader blackJackGUI = new FXMLLoader(getClass().getResource("/BlackJack.fxml"));
         Scene blackJack = new Scene(blackJackGUI.load(), 1280, 720);
@@ -16,7 +16,7 @@ public class Menu extends Application {
         //FXMLLoader menuGUI = new FXMLLoader(getClass().getResource("/Slot.fxml"));
         //Scene menu = new Scene(menuGUI.load(), 1280, 720);
 
-        //FXMLLoader bankGUI = new FXMLLoader(getClass().getResource("/BlackJack.fxml"));
+        //FXMLLoader bankGUI = new FXMLLoader(getClass().getResource("/Poker.fxml"));
         //Scene bank = new Scene(bankGUI.load(), 1280, 720);
 
         stage.setResizable(false);

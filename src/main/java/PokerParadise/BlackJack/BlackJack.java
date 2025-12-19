@@ -2,9 +2,11 @@ package PokerParadise.BlackJack;
 
 import PokerParadise.*;
 
+import java.util.Objects;
+
 
 public class BlackJack {
-    Cards deck = new Cards();
+    Deck deck = new Deck();
     Player player = new Player();
     Player dealer = new Player();
 
@@ -21,11 +23,11 @@ public class BlackJack {
 
     //THE DEAL
     private void deal(){
-        player.drawCard(deck, 2);
-        dealer.drawCard(deck, 2);
+        deck.dealCards(player, 2);
+        deck.dealCards(dealer, 2);
 
-        System.out.println("Dealer draws: " + dealer.getCard(1));
-        System.out.println("Player draws: " + player.showHand());
+        System.out.println("Dealer draws: " + dealer.getCard(0));
+        System.out.println("Player draws: " + player.getCard(0).getNum() + "and" + player.getCard(1).getNum());
     }
 
 
@@ -50,11 +52,11 @@ public class BlackJack {
     //PLAYERS TURN
     public void playerHit() {
         if (player.myTotal() >= 21){
+            deck.dealCard(player);
             playerStand();
             return;
         }
-
-        player.drawCard(deck, 1);
+        deck.dealCard(player);
         System.out.println(player.getLastCard());
 
         if (player.myTotal() >= 21){
@@ -65,11 +67,16 @@ public class BlackJack {
         dealerTurn();
         whoWins();
     }
+    public void playerSplit(){
+        if (player.getSize() == 2 && Objects.equals(player.getCard(0).getFace(), player.getCard(1).getFace())){
+
+        }
+    }
 
     //DEALERS TURN TO PLAY
     private void dealerTurn() {
         while (dealer.myTotal() < 17) {
-            dealer.drawCard(deck, 1);
+            deck.dealCard(dealer);
             System.out.println(dealer.getLastCard());
         }
     }
