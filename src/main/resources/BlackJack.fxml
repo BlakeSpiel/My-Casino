@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PokerParadise.MenuController"
+>
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-image: url(&quot;file:/C:/Users/Makade/Pictures/grass2.jpg&quot;);" VBox.vgrow="ALWAYS">
+      <children>
+            <HBox layoutY="34.0" prefHeight="96.0" prefWidth="1280.0" spacing="280.0" style="-fx-alignment: center;">
+               <children>
+                  <Label fx:id="textPlayer" contentDisplay="CENTER" prefHeight="30.0" prefWidth="250.0" text="PLAYER ()" textFill="#fff200">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="textDealer" contentDisplay="CENTER" layoutX="346.0" layoutY="23.0" prefHeight="30.0" prefWidth="250.0" text="DEALER ()" textAlignment="CENTER" textFill="#fff200">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox layoutY="560.0" prefHeight="160.0" prefWidth="1280.0" spacing="100.0" style="-fx-alignment: center; -fx-background-color: black;">
+               <children>
+                  <Button onAction="#onDouble" layoutX="297.0" layoutY="78.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: #fff200;" text="DOUBLE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button onAction="#onStand" layoutX="497.0" layoutY="78.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: #fff200;" text="STAND">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <VBox prefHeight="220.0" prefWidth="100.0" spacing="20.0" style="-fx-alignment: Center;">
+                     <children>
+                        <Button fx:id="textCash" onAction="#onCash" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-radius: 50%; -fx-background-color: #fff200;" text="\$ ()">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <Button onAction="#onHit" layoutX="612.0" layoutY="78.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: #fff200;" text="HIT">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button onAction="#onSplit" layoutX="497.0" layoutY="78.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: #fff200;" text="SPLIT">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox layoutY="130.0" prefHeight="350.0" prefWidth="1280.0" spacing="280.0" style="-fx-alignment: center;">
+               <children>
+                  <Pane prefHeight="350.0" prefWidth="250.0">
+                     <children>
+                        <ImageView>
+                           <image>
+                              <Image url="/card.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView layoutX="40.0" layoutY="20.0">
+                           <image>
+                               <Image url="/card.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView layoutX="80.0" layoutY="40.0">
+                           <image>
+                               <Image url="/card.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView layoutX="20.0" layoutY="80.0">
+                           <image>
+                               <Image url="/card.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="529.0" layoutY="10.0" prefHeight="350.0" prefWidth="243.0">
+                     <children>
+                        <ImageView>
+                           <image>
+                               <Image url="/card.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView layoutX="40.0" layoutY="20.0">
+                           <image>
+                               <Image url="/card.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView layoutX="80.0" layoutY="40.0">
+                           <image>
+                               <Image url="/card.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView layoutX="20.0" layoutY="80.0">
+                           <image>
+                               <Image url="/card.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView layoutX="60.0" layoutY="100.0">
+                           <image>
+                               <Image url="/card.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView layoutX="100.0" layoutY="120.0">
+                           <image>
+                               <Image url="/card.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView layoutX="40.0" layoutY="160.0">
+                           <image>
+                               <Image url="/card.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView layoutX="80.0" layoutY="180.0">
+                           <image>
+                               <Image url="/card.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView layoutX="120.0" layoutY="200.0">
+                           <image>
+                               <Image url="/card.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+               </children>
+            </HBox>
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>
